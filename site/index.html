@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="个人 WHOOP 数据助手的公开静态页面：隐私说明与授权回调。准备阶段，不收集健康数据。">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; connect-src 'none'; font-src 'none'; manifest-src 'none'; media-src 'none'; img-src data:; script-src 'none'; style-src 'self'">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/site.css">
+<title>个人 WHOOP 数据助手</title>
+</head>
+<body>
+<a class="skip" href="#content">跳到正文</a>
+<div class="wrap">
+<header class="site">
+<p class="banner"><span class="dot" aria-hidden="true"></span>准备阶段 · 静态页面 · 不收集健康数据</p>
+<nav class="nav" aria-label="页面">
+<a href="privacy/">隐私说明</a>
+<a href="callback/">授权回调</a>
+</nav>
+</header>
+<main id="content">
+<h1>个人 WHOOP 数据助手</h1>
+<p class="lede">这个小站只有两份公开页面：给你自己的 WHOOP 应用准备的隐私说明，以及授权之后的回调地址。它是个人使用的准备阶段，不是 WHOOP 官方网站，也没有得到 WHOOP 的背书。</p>
+<div class="panel">
+<p class="kicker">现在可以打开的页面</p>
+<h2>隐私说明</h2>
+<p>说明以后若你本人授权，助手打算如何使用恢复、周期 Strain、睡眠、心率变异性、静息心率和锻炼数据。当前这个静态页面不收集这些数据。</p>
+<p><a href="privacy/">阅读隐私说明</a></p>
+<h2>授权回调</h2>
+<p>供 WHOOP 在你同意或拒绝授权后把浏览器送回来。这里没有登录按钮，不接收密码，也不交换令牌。</p>
+<p><a href="callback/">打开授权回调</a></p>
+</div>
+<h2>登记前先核对地址</h2>
+<p>WHOOP 要求授权请求里的重定向地址与开发者后台登记的地址逐字符相同，包括协议、主机名、路径和结尾斜杠。请使用部署完成、并且你在浏览器里实际打开成功的地址。路径分别是 <code>/privacy/</code> 和 <code>/callback/</code>，前面带有这个项目站点的 <code>/pulse-whoop/</code>。</p>
+<p>在那个地址返回你自己的页面之前，不要把猜测的网址登记进 WHOOP，也不要把客户端密钥交给任何人。</p>
+</main>
+<footer>
+<p>个人使用的静态页面。与 WHOOP 没有附属或背书关系。WHOOP 是其权利人的商标。</p>
+<p>说明日期：2026年11月16日。</p>
+</footer>
+</div>
+</body>
+</html>
