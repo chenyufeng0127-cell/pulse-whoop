@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="个人 WHOOP 数据助手的静态授权回调。不显示授权码或令牌，也不交换令牌。">
+<meta http-equiv="Content-Security-Policy" content="__CSP__">
+<link rel="icon" href="data:,">
+<title>授权回调 · 个人 WHOOP 数据助手</title>
+<style>__STYLE__</style>
+<script>__SCRIPT__</script>
+</head>
+<body>
+<a class="skip" href="#content">跳到正文</a>
+<div class="wrap">
+<header class="site">
+<p class="banner"><span class="dot" aria-hidden="true"></span>准备阶段 · 静态页面 · 不收集健康数据</p>
+<nav class="nav" aria-label="页面">
+<a href="../">首页</a>
+<a href="../privacy/">隐私说明</a>
+</nav>
+</header>
+<main id="content">
+<div id="status" class="panel" role="status" aria-live="polite" data-outcome="pending" data-state-check="pending">
+<p class="kicker" id="status-kicker">准备阶段</p>
+<h1 id="status-title">正在处理授权响应</h1>
+<div id="status-body">
+<p>正在从地址栏移除查询参数和片段。本页不显示授权码或令牌。</p>
+</div>
+</div>
+<noscript>
+<div class="panel bad">
+<p class="kicker">请关闭这个标签</p>
+<p>浏览器没有运行脚本，所以地址栏里的查询参数不会被去掉。请不要复制、转发或保存这个地址。</p>
+</div>
+</noscript>
+<h2>这个页面做什么</h2>
+<p>它只准备接收 WHOOP 授权码流程的重定向结果。当前是准备阶段，静态页面本身不连接账户，也不收集健康数据。</p>
+<ul>
+<li>脚本一旦运行，会立刻用 <code>history.replaceState</code> 去掉查询参数和片段。</li>
+<li>授权码、访问令牌、刷新令牌和客户端密钥都不会写进页面、日志或浏览器存储。</li>
+<li>本页不自动跳转，也不再把这些值发到任何地址。</li>
+<li>这里没有登录框，也没有填写授权码或密钥的表单。</li>
+</ul>
+<h2>怎样才算 state 对得上</h2>
+<p>WHOOP 要求自行生成的 <code>state</code> 为 8 个字符。授权请求里的重定向地址必须与开发者后台登记的地址逐字符相同。</p>
+<p>本页不会自己造一个 state 来凑成核对通过。只有发起授权的页面在离开本站之前，把预期值放进这个浏览器的 <code>sessionStorage</code>（键名 <code>pulse_whoop_oauth_expected_state</code>），并且返回值与它完全一致，结果才是“对得上”。没有事先保存的可用预期值时，结果是“未能核对”。任意一个随响应一起出现的 state 都不会被当成已核对。</p>
+<p>对得上只说明这次响应和跳转前保存的值一致。WHOOP 账户此时仍未连接，令牌交换也还没有发生。</p>
+<h2>以后的安全交接</h2>
+<p>本阶段不实现令牌交换。客户端密钥只应留在你自己的 Grok Bot 机密客户端里，不能出现在这个浏览器页面、公开仓库或普通聊天中。</p>
+<p>若以后要继续，交接必须是你在那个机密客户端上明确发起的另一步，而不是把授权码粘贴到聊天、邮件或本仓库。这个静态页不提供该入口，也不保存授权码供稍后提交。</p>
+<h2>地址栏和托管日志</h2>
+<p>从地址栏去掉参数，不能撤回浏览器已经发出的那一次页面请求。若当时的 URL 带有授权码，GitHub Pages 可能已经在请求日志里看到它。本页不会再发起携带该值的请求，也不能替 GitHub 承诺这些日志会保留多久、如何删除。</p>
+<p>若你不能接受授权码出现在静态托管的请求日志里，请不要把这个页面登记为正式回调，而应使用你自己控制的机密客户端地址。</p>
+</main>
+<footer>
+<p>个人使用的静态页面。与 WHOOP 没有附属或背书关系。WHOOP 是其权利人的商标。</p>
+<p>说明日期：2026年11月16日。</p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="个人 WHOOP 数据助手的隐私说明。准备阶段的静态页面不收集健康数据。">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; connect-src 'none'; font-src 'none'; manifest-src 'none'; media-src 'none'; img-src data:; script-src 'none'; style-src 'self'">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../assets/site.css">
+<title>隐私说明 · 个人 WHOOP 数据助手</title>
+</head>
+<body>
+<a class="skip" href="#content">跳到正文</a>
+<div class="wrap">
+<header class="site">
+<p class="banner"><span class="dot" aria-hidden="true"></span>准备阶段 · 静态页面 · 不收集健康数据</p>
+<nav class="nav" aria-label="页面">
+<a href="../">首页</a>
+<a href="../callback/">授权回调</a>
+</nav>
+</header>
+<main id="content">
+<h1>隐私说明</h1>
+<p class="lede">本说明描述一个个人使用的助手，在使用者本人日后授权之后，打算如何处理此人自己的 WHOOP 数据。这不是 WHOOP 官方网站，与 WHOOP 没有附属、代理或背书关系。WHOOP 是其权利人的商标。</p>
+<p>更新日期：2026年11月16日。这是准备阶段的说明。下面关于字段的描述，依据的是当日可以读到的 <a href="https://developer.whoop.com/docs/developing/oauth/" rel="noreferrer">WHOOP OAuth 文档</a>和 <a href="https://developer.whoop.com/api/" rel="noreferrer">WHOOP API 文档</a>。若 WHOOP 以后改变字段，以他们当时的文档为准。用途仍然限于个人的训练和恢复参考。</p>
+
+<h2>现在这个页面收集什么</h2>
+<p>不收集健康数据。你正在看的是放在公开仓库里的静态说明，当前处于准备阶段。打开本页不会连接 WHOOP，也没有测量、同步或登录功能。</p>
+<ul>
+<li>没有账号、表单或搜索框。</li>
+<li>不要求姓名、电子邮箱、WHOOP 密码、客户端密钥、授权码或令牌。</li>
+<li>不读取、不展示、不保存恢复、Strain、睡眠、心率变异性（HRV）、静息心率（RHR）或锻炼数据。</li>
+<li>不设置分析或广告 Cookie，不加载第三方脚本、字体、像素或统计服务。</li>
+</ul>
+<p>因此，这份静态说明本身没有健康数据可以保留、出售或共享。浏览器向托管方发出的普通页面请求，见下文“托管”。</p>
+
+<h2>以后若你授权，打算处理哪些数据</h2>
+<p>只有在你本人之后于 WHOOP 的授权页同意，并且令牌交换在你自己的机密客户端完成时，助手才会处理你的 WHOOP 数据。令牌交换还没有在这些静态页面里实现。</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>数据</th>
+<th>打算请求的权限</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>恢复记录。WHOOP 文档写明其中包括恢复分数、心率变异性（HRV，RMSSD）和静息心率（RHR）。同一条恢复记录目前还可能带有血氧百分比和皮肤温度。</td>
+<td><code>read:recovery</code></td>
+<td>个人恢复参考。血氧和皮肤温度若随记录一起到来，也只作为同一份恢复情况的上下文。</td>
+</tr>
+<tr>
+<td>生理周期。WHOOP 文档写明其中包括当天 Strain，以及该周期的平均心率。记录里目前还可能有能量消耗和最高心率。</td>
+<td><code>read:cycles</code></td>
+<td>了解自己当天的训练负荷。</td>
+</tr>
+<tr>
+<td>睡眠。WHOOP 文档写明其中包括睡眠表现和各睡眠阶段的时长。记录里目前还可能有睡眠效率、一致性和呼吸频率。</td>
+<td><code>read:sleep</code></td>
+<td>个人恢复参考。</td>
+</tr>
+<tr>
+<td>锻炼。WHOOP 文档写明其中包括活动 Strain 和平均心率。记录里目前还可能有运动类型、时长、距离、海拔和心率区间。</td>
+<td><code>read:workout</code></td>
+<td>个人训练参考。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这些接口的记录里可能含有 WHOOP 分配的数字标识，例如用户编号或某条记录的编号。助手不用这些标识建立公开的身份档案，也不会把它们放进本仓库。</p>
+
+<h2>不打算请求的数据</h2>
+<ul>
+<li>不请求 <code>read:profile</code>。按 WHOOP 文档，该范围包含姓名和电子邮箱。</li>
+<li>不请求 <code>read:body_measurement</code>。按 WHOOP 文档，该范围包含身高、体重和最大心率。</li>
+<li>这些静态页面不请求 <code>offline</code>，也不实现刷新令牌。</li>
+<li>不向你索取 WHOOP 密码。客户端密钥只应留在你自己的机密客户端中，不能出现在浏览器、本仓库或普通聊天里。</li>
+</ul>
+
+<h2>用来做什么</h2>
+<p>用途是给你本人做训练和恢复方面的参考，例如结合恢复情况、当天 Strain、睡眠和锻炼，帮助你安排自己的活动强度。</p>
+<p>这些内容不是诊断，不是治疗，也不是医学建议。它们不能用来判断、证明或排除任何健康状况，也不能代替有资质的医疗专业人员。</p>
+
+<h2>不会用来做什么</h2>
+<ul>
+<li>不用于广告。</li>
+<li>不用于网站分析或用户追踪。</li>
+<li>不出售，不出租。</li>
+<li>不交给其他助手代理。</li>
+<li>不提交给其他付费健康服务。</li>
+<li>不放进本公开仓库或这些公开页面。</li>
+</ul>
+
+<h2>谁会处理数据</h2>
+<p>现在这些页面不处理健康数据。以后若你自己完成授权，预计会碰到这几方：</p>
+<ul>
+<li><strong>WHOOP</strong>：数据来源。你在 WHOOP 的授权页上同意或拒绝。WHOOP 如何保存它自己的数据，以其条款为准。</li>
+<li><strong>你自己的 Grok Bot 服务</strong>：用来根据上述数据生成个人训练和恢复参考。该服务把数据保留多久、采用哪些安全措施，取决于你的配置和该服务当时的条款。本说明不能替它承诺具体的保留期限、删除时限或安全等级。</li>
+<li><strong>GitHub Pages</strong>：托管这些静态页面。它可能按自己的服务处理普通请求元数据，例如 IP 地址、用户代理、请求时间和路径。健康数据不应该出现在这些页面里。本说明不能保证 GitHub 的日志保留或删除时限。</li>
+</ul>
+<p>除此之外，不打算把这些健康数据交给其他助手代理，或其他付费健康服务。</p>
+
+<h2>授权回调</h2>
+<p>回调页在本站的 <code>/callback/</code>。它只准备接收授权码流程的重定向结果：立刻从地址栏去掉查询参数和片段，不显示、不记录、不保存授权码和令牌，不自动跳转，也不把这些值再发出去。没有事先保存在本浏览器里的 8 位 state 时，它不会把返回的 state 标成已核对。令牌交换不在这个静态页面进行。</p>
+<p>把静态页面登记为回调时，浏览器第一次打开它的 URL 可能含有授权码，GitHub Pages 可能因此在访问日志里看到该 URL。若你不能接受这一点，请使用你自己控制的机密客户端地址，而不要使用这个静态回调。细节写在回调页上。</p>
+
+<h2>你的选择</h2>
+<p>现在还没有连接可以断开，你可以随时离开这些页面。以后若你完成了授权，可以按 WHOOP 当时提供的方式撤销该应用的访问。撤销之后，助手不应再获取新的数据。已经进入你自己的 Grok Bot 服务的副本如何删除，要以该服务和你的配置为准，这里不作绝对承诺。</p>
+
+<h2>公开仓库</h2>
+<p>本仓库和 GitHub Pages 上的页面是公开的。不要把健康数据、授权码、访问令牌、刷新令牌、客户端密钥、密码或导出的 WHOOP 文件提交到仓库或这些页面。</p>
+
+<h2>说明的更新</h2>
+<p>若处理方式改变，会更新本页和上面的日期。本页没有联系表单，也不收集来信。</p>
+</main>
+<footer>
+<p>个人使用的静态页面。与 WHOOP 没有附属或背书关系。WHOOP 是其权利人的商标。</p>
+</footer>
+</div>
+</body>
+</html>

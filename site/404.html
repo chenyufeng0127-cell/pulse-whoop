@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; connect-src 'none'; font-src 'none'; manifest-src 'none'; media-src 'none'; img-src data:; script-src 'none'; style-src 'sha256-b3DNcDtQKLiC3z1HXq/fa9f9/P/4Bz24J7KU1s66AEA='">
+<link rel="icon" href="data:,">
+<title>找不到页面 · 个人 WHOOP 数据助手</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f3f0e8;
+  --paper: #fbfaf6;
+  --ink: #1b1916;
+  --muted: #3e3a34;
+  --line: #e0d9cc;
+  --pine: #1e4d3b;
+  --warn: #6b3a0c;
+  --warn-soft: #f8efe3;
+  --bad: #6d241c;
+  --bad-soft: #f8e8e4;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--bg); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Source Han Sans SC", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+a {
+  color: var(--pine);
+  text-underline-offset: 0.16em;
+}
+
+a:hover { text-decoration-thickness: 2px; }
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  transform: translateY(-150%);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.skip:focus { transform: none; }
+
+.wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+}
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+  align-items: center;
+  margin: 0;
+  color: var(--pine);
+  font-size: 0.95rem;
+}
+
+.dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--pine);
+  display: inline-block;
+}
+
+header.site { margin: 1.15rem 0 1.4rem; }
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-top: 0.8rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.28;
+  margin: 0.15rem 0 0.75rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.28rem;
+  line-height: 1.4;
+  margin: 2rem 0 0.65rem;
+}
+
+.lede { font-size: 1.08rem; }
+
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.1rem 0.4rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.panel.warn {
+  background: var(--warn-soft);
+  border-color: #ead7c0;
+}
+
+.panel.bad {
+  background: var(--bad-soft);
+  border-color: #efd0cb;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--pine);
+  font-size: 0.92rem;
+}
+
+.panel.warn .kicker { color: var(--warn); }
+
+.panel.bad .kicker { color: var(--bad); }
+
+.muted, footer { color: var(--muted); }
+
+footer {
+  margin-top: 2.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+code {
+  font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: #efeae1;
+  padding: 0.08em 0.35em;
+  border-radius: 6px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.8rem 0 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  font-size: 0.98rem;
+}
+
+th, td {
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 0.7rem;
+}
+
+tr:last-child td { border-bottom: 0; }
+
+th {
+  background: #f6f3ec;
+  font-weight: 600;
+}
+
+:focus-visible {
+  outline: 2px solid var(--pine);
+  outline-offset: 3px;
+}
+
+button {
+  font: inherit;
+  color: var(--paper);
+  background: var(--pine);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 1.02rem; }
+  h1 { font-size: 1.55rem; }
+  .wrap { padding: 1rem 1rem 2.4rem; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">跳到正文</a>
+<div class="wrap">
+<header class="site">
+<p class="banner"><span class="dot" aria-hidden="true"></span>准备阶段 · 静态页面 · 不收集健康数据</p>
+</header>
+<main id="content">
+<h1>找不到这个路径</h1>
+<p class="lede">这里只有隐私说明和授权回调两个公开页面。本页不收集健康数据或凭据。</p>
+<ul>
+<li><a href="/pulse-whoop/">首页</a></li>
+<li><a href="/pulse-whoop/privacy/">隐私说明</a></li>
+<li><a href="/pulse-whoop/callback/">授权回调</a></li>
+</ul>
+</main>
+<footer>
+<p>个人使用的静态页面。与 WHOOP 没有附属或背书关系。WHOOP 是其权利人的商标。</p>
+</footer>
+</div>
+</body>
+</html>

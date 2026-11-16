@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; connect-src 'none'; font-src 'none'; manifest-src 'none'; media-src 'none'; img-src data:; script-src 'unsafe-inline'; style-src 'self'">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/pulse-whoop/assets/site.css">
+<title>本地练习 · 不连接 WHOOP</title>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+<p class="banner"><span class="dot" aria-hidden="true"></span>仅本机测试 · 不会发布到 GitHub Pages</p>
+</header>
+<main>
+<h1>本地 state 核对练习</h1>
+<div class="panel bad">
+<p>这不会连接 WHOOP。不要把真实授权码、访问令牌、刷新令牌或客户端密钥粘贴到这里。本页没有输入框，只使用固定占位符 <code>local-test-code</code>。</p>
+</div>
+<p>点击后，本页会生成恰好 8 位的 state，写入 <code>sessionStorage</code> 键 <code>pulse_whoop_oauth_expected_state</code>，然后打开本地回调。回调应显示“对得上”，同时不把占位符留在页面或地址栏上。账户仍然不会连接。</p>
+<p><button type="button" id="practice">用占位符练习回调</button></p>
+</main>
+</div>
+<script>
+(function () {
+  "use strict";
+  var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  function generateState() {
+    var out = "";
+    var buf = new Uint8Array(16);
+    while (out.length < 8) {
+      crypto.getRandomValues(buf);
+      var index;
+      for (index = 0; index < buf.length && out.length < 8; index += 1) {
+        if (buf[index] >= 248) continue;
+        out += alphabet.charAt(buf[index] % 62);
+      }
+    }
+    return out;
+  }
+  document.getElementById("practice").addEventListener("click", function () {
+    var state = generateState();
+    sessionStorage.setItem("pulse_whoop_oauth_expected_state", state);
+    location.assign("/pulse-whoop/callback/?code=local-test-code&state=" + encodeURIComponent(state));
+  });
+}());
+</script>
+</body>
+</html>
